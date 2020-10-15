@@ -1,0 +1,39 @@
+﻿@{
+    // List<Account> accounts = ((List<Account>)ViewBag.Accounts); // forma A
+    List<PokemonGo> pokemonGos = ((List<PokemonGo>)Model); // forma B
+}
+
+<h1>POKEMON ATRAPALOS YA!!</h1>
+
+<a href="/Poke/create">Crear Pokemon</a> |
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Tipo</th>
+            <th>Nombre</th>
+           
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in pokemonGos)
+        {            
+            <tr>
+                <td>
+                    <img src="@item.Imagen" width="100" alt="Alternate Text" />
+                </td>
+                <td>@item.Tipo.Nombre</td>
+                <td>@item.Nombre</td>
+               
+                <td>
+                    <a href="/poke/Capturar?pokemon=@item.Id">Capturar</a> |
+                   
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

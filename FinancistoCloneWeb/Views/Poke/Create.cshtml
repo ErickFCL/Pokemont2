@@ -1,0 +1,27 @@
+﻿@{ 
+    var account = (PokemonGo)Model;
+}
+
+    <h1>Crear Pokemon</h1>
+
+    
+    <form action="/poke/create" enctype="multipart/form-data" method="post">
+
+        <input type="file" name="Image" />
+
+        Tipo <select name="TipoId">
+            <option value="">-- Selecciona una opción --</option>
+            @foreach(var item in ViewBag.Tipos)
+            {
+                <option value="@item.Id">@item.Nombre</option>
+            }
+        </select>
+
+
+        Nombre <input name="Nombre" />
+        @Html.ValidationMessage("poke")  
+
+        
+        <button>Guardar</button>
+
+    </form>
